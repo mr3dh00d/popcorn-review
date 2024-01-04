@@ -1,5 +1,6 @@
 // import '@styles/navbar.css';
 import logo from '@images/popcorn-logo.jpg';
+import { Link } from 'react-router-dom';
 // import { AiFillHome, AiFillFolderOpen } from "react-icons/ai";
 
 interface NavbarProps {}
@@ -14,7 +15,9 @@ function Navbar(props: NavbarProps) {
         <ul className="flex gap-12 justify-end items-center">
           <li>
               {/* <AiFillHome /> */}
-              <a href="">Inicio</a>
+              <Link to={'/'}>
+                Inicio
+              </Link>
             {/* <Link to="/">Home</Link> */}
           </li>
           <li>
@@ -22,7 +25,9 @@ function Navbar(props: NavbarProps) {
               <a href="">Mis reseñas</a>
           </li>
           <li>
-            <img className="rounded-full" width={40} height={40} src="/avatars/avatar_1.png" alt="avatar" />
+            <Link to={'/login'}>
+              <img className="rounded-full" width={40} height={40} src="/avatars/avatar_1.png" alt="avatar" />
+            </Link>
           </li>
         </ul>
       </div>
