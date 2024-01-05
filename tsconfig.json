@@ -26,6 +26,7 @@
       "@/*": ["src/*"],
       "@styles/*": ["src/assets/styles/*"],
       "@images/*": ["src/assets/images/*"],
+      "@slices/*": ["src/store/slices/*"],
     }
   },
   "include": ["src", "public/avatars"],

@@ -10,6 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@styles': path.resolve(__dirname, './src/assets/styles'),
       '@images': path.resolve(__dirname, './src/assets/images'),
+      '@slices': path.resolve(__dirname, './src/store/slices'),
     }
   },
   plugins: [react()]
