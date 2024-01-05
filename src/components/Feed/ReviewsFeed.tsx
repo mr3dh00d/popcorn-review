@@ -4,6 +4,7 @@ import AddReviewCard from "../AddReviewCard";
 
 interface ReviewFeedProps {
     className?: string;
+    canEdit?: boolean;
 }
 
 const article = new Array(10).fill(0).map(() => getRandomNumber(0, 5));
@@ -19,8 +20,8 @@ function ReviewsFeed(props : ReviewFeedProps) {
             </section>
             <section className="mt-4 flex flex-col gap-4">
                 {
-                    article.map((score) => (
-                        <Review score={score} />
+                    article.map((score, i) => (
+                        <Review key={i} score={score} canEdit={props.canEdit}/>
                     ))
                 }
             </section>

@@ -1,9 +1,14 @@
 import { getRandomAvatar, getRandomNumber } from "@/utils";
+// @ts-ignore
 import { FaRegHeart, FaTrash } from "react-icons/fa6";
+// @ts-ignore
 import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { routes } from "@/routes/routes";
 
 interface ReviewProps {
     score: number;
+    canEdit?: boolean;
 }
 
 /**
@@ -22,7 +27,7 @@ function Review (props : ReviewProps) {
                             <div className="flex gap-2">
                                 {
                                     Array(5).fill(0).map((_, i) => (
-                                        <div className={`w-4 h-4 rounded-full border-orange-300 border-2 ${i+1 <= props.score ? 'bg-orange-300' : 'bg-transparent'}`}></div>
+                                        <div key={i} className={`w-4 h-4 rounded-full border-orange-300 border-2 ${i+1 <= props.score ? 'bg-orange-300' : 'bg-transparent'}`}></div>
                                     ))
                                 }
                             </div>
@@ -45,15 +50,17 @@ function Review (props : ReviewProps) {
                         </button>
                         <span>{getRandomNumber(1,375)}</span>
                     </div>
-                    {/* <div className="text-lg flex gap-4 items-center justify-between">
-                        <button className="text-blue-400">
-                            <FaEdit />
-                        </button>
-                        <button className="text-red-400">
-                            <FaTrash />
-                        </button>
+                    { props.canEdit &&
+                        <div className="text-lg flex gap-4 items-center justify-between">
+                            <Link to={`${routes.reviews.base}/${routes.reviews.edit.replace(':id', `${props.score}`)}`} className="text-blue-400">
+                                <FaEdit />
+                            </Link>
+                            <button className="text-red-400">
+                                <FaTrash />
+                            </button>
 
-                    </div> */}
+                        </div>
+                    }
                 </footer>
             </div>
         </article>
