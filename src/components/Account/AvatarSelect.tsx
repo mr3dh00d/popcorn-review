@@ -17,7 +17,7 @@ function AvatarSelect(props: AvatarSelectProps) {
 
     return (
         <div className="">
-            <div className="flex items-center gap-2 p-2" onClick={() => setOpen(!open)} onBlur={() => setOpen(false)}>
+            <div className="flex items-center gap-2 p-2" onClick={() => setOpen(!open)} >
                 <img className="" width={60} height={60} src={`/avatars/avatar_${avatar}.png`} alt="" />
                 {!open ? <FaChevronDown /> : <FaChevronUp />}
             </div>

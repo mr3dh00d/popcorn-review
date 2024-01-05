@@ -1,12 +1,15 @@
 import { FaRegTrashCan } from "react-icons/fa6";
 import Template from "@/components/Template"
 import { useState } from "react";
+import { useAppSelector } from "@/store/hooks";
 
 function Edit() {
+    const auth = useAppSelector((state) => state.auth);
+
     const [score, setScore] = useState(0);
 
     return (
-        <Template>
+        <Template auth={auth}>
             <section className="w-full flex justify-center mt-2">
                 <article className="flex flex-col gap-4 w-2/3 bg-white rounded-md px-8 py-4">
                     <div className="flex justify-between">

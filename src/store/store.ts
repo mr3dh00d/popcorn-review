@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import Slices from "./slices";
 
-const store = configureStore({
+export const store = configureStore({
     reducer: {
         auth: Slices.auth,
         // reviews: reviewsReducer,

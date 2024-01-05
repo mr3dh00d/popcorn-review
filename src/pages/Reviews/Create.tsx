@@ -1,12 +1,14 @@
 import MovieSearch from "@/components/Reviews/MovieSearch";
 import Template from "@/components/Template"
+import { useAppSelector } from "@/store/hooks";
 import { useState } from "react";
 
 function Create() {
+    const auth = useAppSelector((state) => state.auth);
     const [score, setScore] = useState(0);
 
     return (
-        <Template>
+        <Template auth={auth}>
             <section className="w-full flex justify-center mt-2">
                 <article className="flex flex-col gap-4 w-2/3 bg-white rounded-md px-8 py-4">
                     <h1 className="text-4xl font-bold">Nueva Reseña</h1>

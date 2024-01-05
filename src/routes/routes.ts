@@ -1,5 +1,6 @@
 export const routes = {
     base: '/',
+    feed: '/feed',
     login: '/login',
     register: '/register',
     reviews: {
