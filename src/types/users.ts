@@ -7,3 +7,10 @@ export interface User {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface UserMin {
+    id: number;
+    name: string;
+    username: string;
+    avatar: string;
+}

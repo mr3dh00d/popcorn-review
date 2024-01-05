@@ -2,5 +2,9 @@ export const getRandomNumber = (min : number, max : number) => Math.floor(Math.r
 
 export const getRandomAvatar = () => {
     const avatar_number = getRandomNumber(1, 15);
-    return '/avatars/avatar_' + avatar_number + '.png';
+    return 'avatar_' + avatar_number;
 };
+
+export const getMoviePoster = (poster_path: string) => {
+    return 'https://image.tmdb.org/t/p/original/' + poster_path;
+}

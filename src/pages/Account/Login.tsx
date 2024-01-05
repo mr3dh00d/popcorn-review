@@ -1,4 +1,5 @@
 import Template from "@/components/Template";
+import { useAppSelector } from "@/store/hooks";
 import logo from "@images/popcorn-logo.jpg";
 import { Link } from "react-router-dom";
 
@@ -8,8 +9,10 @@ interface LoginProps {}
  */
 // @ts-ignore
 function Login(props : LoginProps) {
+    const auth = useAppSelector((state) => state.auth);
+
     return (
-        <Template>
+        <Template auth={auth}>
             <section className="mt-2 flex flex-col items-center justify-center w-full h-[80vh]">
                 <article className="bg-white w-1/2 min-h-10 rounded-md flex flex-col py-6 items-center">
                     <div className="w-1/2 flex flex-col justify-center items-center gap-4">

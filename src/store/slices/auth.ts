@@ -6,6 +6,11 @@ export interface AuthState {
     user: User | null;
 }
 
+// const initialState : AuthState = {
+//     isAuthenticated: false,
+//     user: null,
+// };
+
 const initialState : AuthState = {
     isAuthenticated: true,
     user: {

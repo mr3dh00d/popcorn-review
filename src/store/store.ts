@@ -4,7 +4,7 @@ import Slices from "./slices";
 export const store = configureStore({
     reducer: {
         auth: Slices.auth,
-        // reviews: reviewsReducer,
+        reviews: Slices.reviews,
         // my_reviews: myReviewsReducer,
     }
 });

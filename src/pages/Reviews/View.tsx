@@ -1,4 +1,4 @@
-import Review from "@/components/Review";
+import ReviewCard from "@/components/ReviewCard";
 import Template from "@/components/Template"
 import { useAppSelector } from "@/store/hooks";
 
@@ -7,7 +7,7 @@ function View() {
     return (
         <Template auth={auth}>
             <div className="mt-2">
-                <Review score={1} canEdit />
+                <ReviewCard score={1} canEdit />
             </div>
         </Template>
     );

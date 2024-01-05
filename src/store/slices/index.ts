@@ -1,9 +1,9 @@
 import AuthReduces from './auth';
+import ReviewsReducer from './reviews';
 // import FeedReducer from './feed';
-// import ReviewsReducer from './reviews';
 
 export default {
     auth: AuthReduces,
+    reviews: ReviewsReducer,
     // feed: FeedReducer,
-    // reviews: ReviewsReducer,
 };

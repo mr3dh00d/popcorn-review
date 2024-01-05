@@ -54,7 +54,7 @@ function Navbar(props: NavbarProps) {
 
   const renderAuthentication = () => {
     return (
-      <ul>
+      <ul className="flex justify-end items-center">
         <li className="">
           <Link to={routes.login} className="px-4 py-2 border-2 rounded-full border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition ease-out">Iniciar Sesión</Link>
         </li>
