@@ -5,6 +5,6 @@ export const getRandomAvatar = () => {
     return 'avatar_' + avatar_number;
 };
 
-export const getMoviePoster = (poster_path: string) => {
+export const getMoviePoster = (poster_path?: string) => {
     return 'https://image.tmdb.org/t/p/original/' + poster_path;
 }
