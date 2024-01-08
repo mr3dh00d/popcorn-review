@@ -1,10 +1,11 @@
 // import '@styles/navbar.css';
 import { routes } from '@/routes/routes';
-import { AuthState } from '@slices/auth';
+import { AuthState, logout } from '@slices/auth';
 import logo from '@images/popcorn-logo.jpg';
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import { useAppDispatch } from '@/store/hooks';
 // import { AiFillHome, AiFillFolderOpen } from "react-icons/ai";
 
 interface NavbarProps {
@@ -15,6 +16,7 @@ interface NavbarProps {
  */
 // @ts-ignore
 function Navbar(props: NavbarProps) {
+  const dispatch = useAppDispatch();
   const [submenu, setSubmenu] = useState(false);
   const { auth } = props;
   const { user } = auth;
@@ -42,9 +44,9 @@ function Navbar(props: NavbarProps) {
           </div>
           { submenu &&
             <div className="w-52 mt-2 absolute right-0 bg-white border flex py-2 rounded-md shadow-md">
-              <Link to={routes.feed} className="w-full p-2 hover:bg-gray-300">
+              <button className="w-full p-2 hover:bg-gray-300" onClick={() => dispatch(logout())}>
                 Cerrar Sesión
-              </Link>
+              </button>
             </div>
           }
         </li>
