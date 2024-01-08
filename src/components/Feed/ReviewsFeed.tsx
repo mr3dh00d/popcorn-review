@@ -21,7 +21,7 @@ function ReviewsFeed(props : ReviewFeedProps) {
 
 
     const renderLoading = () => (
-        Array(5).fill(0).map((score, i) => (
+        Array(5).fill(0).map((_, i) => (
             <ReviewLoadingCard key={i}/>
         ))
     );

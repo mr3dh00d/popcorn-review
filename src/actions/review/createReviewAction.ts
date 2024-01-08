@@ -1,7 +1,7 @@
 interface params {
     description: string;
     score: number;
-    movie_id: number;
+    movie_id: number | null;
     user_id: number | null;
 }
 

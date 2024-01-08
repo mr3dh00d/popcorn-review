@@ -1,6 +1,6 @@
 import { fetchMovieData } from '@/actions/fetchMovieData';
 import { fetchReviews } from '@/actions/fetchReviews';
-import { Review, ReviewServerResponse } from '@/types/reviews';
+import { Review } from '@/types/reviews';
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export interface ReviewsState {

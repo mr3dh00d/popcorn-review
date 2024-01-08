@@ -1,5 +1,4 @@
 import { ReviewServerResponse } from "@/types/reviews";
-import { getRandomAvatar, getRandomNumber } from "@/utils";
 
 
 export function fetchReviews () : Promise<{
@@ -7,7 +6,6 @@ export function fetchReviews () : Promise<{
 }>{
     return fetch(`${import.meta.env.VITE_API_URL}/reviews`, {
         headers: {
-            // "Authorization": "Bearer " + token,
         }
     })
     .then((res) => {

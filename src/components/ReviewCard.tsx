@@ -1,7 +1,5 @@
-import { getMoviePoster, getRandomAvatar, getRandomNumber } from "@/utils";
-// @ts-ignore
+import { getMoviePoster} from "@/utils";
 import { FaRegHeart, FaTrash } from "react-icons/fa6";
-// @ts-ignore
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { routes } from "@/routes/routes";
