@@ -7,7 +7,7 @@ export interface ReviewServerResponse {
     score: number;
     likes: number;
     user: UserMin;
-    movieId: number;
+    movie_id: number;
     createdAt: string;
     updatedAt: string;
 }

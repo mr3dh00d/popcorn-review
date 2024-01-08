@@ -6,6 +6,7 @@ import MovieResultLoading from "./MovieResultLoading";
 
 interface MovieSearchProps {
     setMovie: (movie: Movie) => void;
+    loading: boolean;
 }
 
 function MovieSearch(props : MovieSearchProps) {
@@ -57,6 +58,7 @@ function MovieSearch(props : MovieSearchProps) {
                 value={query}
                 onChange={handleInputChange}
                 onFocus={() => setOpen(query.length > 3)}
+                disabled={props.loading}
                 />
             { open &&
                 <div className="absolute overflow-auto w-full max-h-64 bg-white border rounded-b-lg shadow-md">

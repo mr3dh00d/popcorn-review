@@ -17,9 +17,10 @@ export const getReviews = createAsyncThunk(
     'reviews/getReviews',
     async () => {
         const response = await fetchReviews();
-        const reviews = (await response.json()) as Array<ReviewServerResponse>;
+        const reviews = response;
+        // @ts-ignore
         return Promise.all(reviews.map(async (reviewServer) => {
-            const movie = await fetchMovieData(reviewServer.movieId);
+            const movie = await fetchMovieData(reviewServer.movie_id);
             const review : Review = {
                 ...reviewServer,
                 movie,
