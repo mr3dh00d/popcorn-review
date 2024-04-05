@@ -1,13 +1,13 @@
-import Template from "@/components/Template";
-import logo from "@images/popcorn-logo.jpg";
-import { Link } from "react-router-dom";
-import AvatarSelect from "../../components/Account/AvatarSelect";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { useState } from "react";
-import { getRandomNumber } from "@/utils";
-import { signin } from "@/actions/auth/siginin";
-import { login } from "@/store/slices/auth";
-import { User } from "@/types/users";
+import Template from "@/components/Template"
+import logo from "@images/popcorn-logo.jpg"
+import { Link } from "react-router-dom"
+import AvatarSelect from "../../components/Account/AvatarSelect"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { useState } from "react"
+import { getRandomNumber } from "@/utils"
+import { signin } from "@/actions/auth/siginin"
+import { login } from "@/store/slices/auth"
+import { User } from "@/types/users"
 
 interface RegisterProps {}
 interface form {
@@ -39,9 +39,9 @@ interface form {
  */
 // @ts-ignore
 function Register(props : RegisterProps) {
-    const auth = useAppSelector((state) => state.auth);
-    const dispatch = useAppDispatch();
-    const [loading, setLoading] = useState<boolean>(false);
+    const auth = useAppSelector((state) => state.auth)
+    const dispatch = useAppDispatch()
+    const [loading, setLoading] = useState<boolean>(false)
     const [form, setForm] = useState<form>({
         name: {
             value: '',
@@ -65,8 +65,8 @@ function Register(props : RegisterProps) {
         repeat_password: {
             value: '',
         },
-    });
-    const [Error, setError] = useState<string>('');
+    })
+    const [Error, setError] = useState<string>('')
 
     const handleChanges = (field : 'name' | 'username' | 'email' | 'password' | 'repeat_password', value : string) => {
         setForm({
@@ -76,8 +76,8 @@ function Register(props : RegisterProps) {
                 value,
                 error: null
             }
-        });
-    };
+        })
+    }
 
 
     const setAvatar = (avatar: number) => {
@@ -87,18 +87,18 @@ function Register(props : RegisterProps) {
                 ...form.avatar,
                 value: avatar,
             }
-        });
+        })
     }
 
-    const errorStyle = (error: string | null) => error ? 'border-red-500' : '';
+    const errorStyle = (error: string | null) => error ? 'border-red-500' : ''
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) : void => {
-        e.preventDefault();
-        let newForm = {...form};
-        let good = true;
+        e.preventDefault()
+        let newForm = {...form}
+        let good = true
         Object.entries(form).forEach(([key, value]) => {
             if(!value.value || key !=='avatar' && value.value === '') {
-                good = false;
+                good = false
                 newForm = {
                     ...newForm,
                     [key]: {
@@ -107,10 +107,10 @@ function Register(props : RegisterProps) {
                     }
                 }
             }
-        });
+        })
 
         if (form.password.value !== form.repeat_password.value) {
-            good = false;
+            good = false
             newForm = {
                 ...newForm,
                 password: {
@@ -120,9 +120,9 @@ function Register(props : RegisterProps) {
             }
         }
 
-        setForm(newForm);
+        setForm(newForm)
 
-        if(!good) return;
+        if(!good) return
 
         const data = {
             name: form.name.value,
@@ -131,12 +131,12 @@ function Register(props : RegisterProps) {
             email: form.email.value,
             password: form.password.value,
             repeat_password: form.repeat_password.value,
-        };
+        }
 
-        setLoading(true);
+        setLoading(true)
         signin(data)
         .then((res) => {
-            const data = res.data;
+            const data = res.data
             const user : User = {
                 id: data.user.id,
                 name: data.user.name,
@@ -146,21 +146,21 @@ function Register(props : RegisterProps) {
                 created_at: data.user.created_at,
                 updated_at: data.user.updated_at,
             }
-            const token = data.token;
+            const token = data.token
             dispatch(login({
                 user,
                 token,
-            }));
+            }))
         })
         .catch((err) => {
-            setError(err.message);
-            console.error(err);
+            setError(err.message)
+            console.error(err)
         })
         .finally(() => {
-            setLoading(false);
-        });
+            setLoading(false)
+        })
 
-    };
+    }
 
     return (
         <Template auth={auth}>
@@ -194,7 +194,7 @@ function Register(props : RegisterProps) {
                 </article>
             </section>
         </Template>
-    );
+    )
 }
 
-export default Register;
+export default Register

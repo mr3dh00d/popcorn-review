@@ -1,96 +1,96 @@
-import { createReviewAction } from "@/actions/review/createReviewAction";
-import MovieSearch from "@/components/Reviews/MovieSearch";
+import { createReviewAction } from "@/actions/review/createReviewAction"
+import MovieSearch from "@/components/Reviews/MovieSearch"
 import Template from "@/components/Template"
-import { routes } from "@/routes/routes";
-import { useAppSelector } from "@/store/hooks";
-import { Movie } from "@/types/movies";
-import { getMoviePoster } from "@/utils";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { routes } from "@/routes/routes"
+import { useAppSelector } from "@/store/hooks"
+import { Movie } from "@/types/movies"
+import { getMoviePoster } from "@/utils"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 interface FormErrors {
-    description: string | null;
-    score: string | null;
-    movie_id: string | null;
+    description: string | null
+    score: string | null
+    movie_id: string | null
 }
 
 
 function Create() {
-    const auth = useAppSelector((state) => state.auth);
-    const navigate = useNavigate();
-    const [description, setDescription] = useState<string>('');
-    const [score, setScore] = useState(0);
-    const [movie, setMovie] = useState<Movie | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
+    const auth = useAppSelector((state) => state.auth)
+    const navigate = useNavigate()
+    const [description, setDescription] = useState<string>('')
+    const [score, setScore] = useState(0)
+    const [movie, setMovie] = useState<Movie | null>(null)
+    const [loading, setLoading] = useState<boolean>(false)
     const [errors, setErrors] = useState<FormErrors>({
         description: "",
         score: "",
         movie_id: "",
-    });
-    const [error, setError] = useState<string | null>(null);
+    })
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         if (movie !== null) {
             setErrors({
                 ...errors,
                 movie_id: null,
-            });
+            })
         }
-    }, [movie]);
+    }, [movie])
 
     useEffect(() => {
         if (description !== null) {
             setErrors({
                 ...errors,
                 description: null,
-            });
+            })
         }
-    }, [description]);
+    }, [description])
 
     useEffect(() => {
         if (score !== null) {
             setErrors({
                 ...errors,
                 score: null,
-            });
+            })
         }
-    }, [score]);
+    }, [score])
 
     
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        let validation = true;
-        let newErrors = errors;
-        console.log(description === "");
+        e.preventDefault()
+        let validation = true
+        let newErrors = errors
+        console.log(description === "")
         if (description === '') {
             newErrors = {
                 ...newErrors,
                 description: 'Se requiere una descripción',
             }
-            validation = false;
+            validation = false
         }
         if (score === 0) {
             newErrors = {
                 ...newErrors,
                 score: 'Se requiere una calificación',
-            };
-            validation = false;
+            }
+            validation = false
         }
         if (movie === null) {
             newErrors = {
                 ...newErrors,
                 movie_id: 'Se requiere una película',
-            };
-            validation = false;
+            }
+            validation = false
         }
 
-        setErrors(newErrors);
+        setErrors(newErrors)
         
-        if (!validation) return;
+        if (!validation) return
 
-        const token = auth?.token || "";
-        setLoading(true);
+        const token = auth?.token || ""
+        setLoading(true)
         createReviewAction(token,  {
             description,
             score,
@@ -98,14 +98,14 @@ function Create() {
             user_id: auth.user?.id || null,
         })
         .then(() => {
-            navigate(routes.reviews.base);
+            navigate(routes.feed)
         })
         .catch((err) => {
-            setError(err.message);
+            setError(err.message)
         })
         .finally(() => {
-            setLoading(false);
-        });
+            setLoading(false)
+        })
     }
 
     return (
@@ -155,7 +155,7 @@ function Create() {
                 </article>
             </section>
         </Template>
-    );
+    )
 }
 
-export default Create;
+export default Create

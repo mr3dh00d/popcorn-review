@@ -1,13 +1,13 @@
-import { Movie } from "@/types/movies";
-import { getMoviePoster } from "@/utils";
+import { Movie } from "@/types/movies"
+import { getMoviePoster } from "@/utils"
 
 interface MovieResultProps {
-    movie: Movie;
-    setMovie: (movie: Movie) => void;
+    movie: Movie
+    setMovie: (movie: Movie) => void
 }
 
 function MovieResult(props : MovieResultProps) {
-    const { movie } = props;
+    const { movie } = props
     return (
         <div className="flex w-full px-4 py-2 border-b gap-2" onClick={() => props.setMovie(movie)}>
             <div className="">
@@ -24,7 +24,7 @@ function MovieResult(props : MovieResultProps) {
                 </p>
             </div>
         </div>
-    );
+    )
 }
 
-export default MovieResult;
+export default MovieResult

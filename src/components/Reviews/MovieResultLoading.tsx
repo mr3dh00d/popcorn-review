@@ -15,7 +15,7 @@ function MovieResultLoading() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default MovieResultLoading;
+export default MovieResultLoading

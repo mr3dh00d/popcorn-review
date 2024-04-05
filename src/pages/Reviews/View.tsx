@@ -1,9 +1,9 @@
-import ReviewLoadingCard from "@/components/ReviewLoadingCard";
+import ReviewLoadingCard from "@/components/ReviewLoadingCard"
 import Template from "@/components/Template"
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/hooks"
 
 function View() {
-    const auth = useAppSelector((state) => state.auth);
+    const auth = useAppSelector((state) => state.auth)
 
 
     return (
@@ -12,7 +12,7 @@ function View() {
                 <ReviewLoadingCard />
             </div>
         </Template>
-    );
+    )
 }
 
-export default View;
+export default View

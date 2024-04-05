@@ -1,15 +1,15 @@
-import { User } from "@/types/users";
-import { FaHeart, FaBookOpen  } from "react-icons/fa6";
+import { User } from "@/types/users"
+import { FaHeart, FaBookOpen  } from "react-icons/fa6"
 
 interface StatsProps {
-    user: User | null;
-    className?: string;
+    user: User | null
+    className?: string
 }
 /**
  * Stats component
  */
 function Stats(props: StatsProps) {
-    const { user } = props;
+    const { user } = props
     return (
         <div className={props.className}>
             <article className="bg-white w-full rounded-md mt-10 pb-4">
@@ -34,7 +34,7 @@ function Stats(props: StatsProps) {
                 </div>
             </article>
         </div>
-    );
+    )
 }
 
-export default Stats;
+export default Stats

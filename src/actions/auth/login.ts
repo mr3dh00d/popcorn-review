@@ -7,8 +7,8 @@ export async function login(email: string, password: string) {
         body: JSON.stringify({ email, password }),
     }).then((res) => {
         if (res.ok) {
-            return res.json();
+            return res.json()
         }
-        throw new Error('Las credenciales no son válidas');
-    });
+        throw new Error('Las credenciales no son válidas')
+    })
 }

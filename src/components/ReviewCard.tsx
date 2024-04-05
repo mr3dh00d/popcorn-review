@@ -1,20 +1,20 @@
-import { getMoviePoster} from "@/utils";
-import { FaRegHeart, FaTrash } from "react-icons/fa6";
-import { FaEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { routes } from "@/routes/routes";
-import { Review } from "@/types/reviews";
+import { getMoviePoster} from "@/utils"
+import { FaRegHeart, FaTrash } from "react-icons/fa6"
+import { FaEdit } from "react-icons/fa"
+import { Link } from "react-router-dom"
+import { routes } from "@/routes/routes"
+import { Review } from "@/types/reviews"
 
 interface ReviewProps {
-    review: Review;
-    canEdit?: boolean;
+    review: Review
+    canEdit?: boolean
 }
 
 /**
  * Review component
  */
 function ReviewCard (props : ReviewProps) {
-    const { review } = props;
+    const { review } = props
     return (
         <article className="flex gap-4 items-center w-full bg-white rounded-md px-8 py-4">
             <img width={144} className="rounded-md" src={getMoviePoster(review.movie.poster_path)} alt={`poster ${review.movie.title}`} />
@@ -66,7 +66,7 @@ function ReviewCard (props : ReviewProps) {
             </div>
         </article>
 
-    );
+    )
 }
 
-export default ReviewCard;
+export default ReviewCard

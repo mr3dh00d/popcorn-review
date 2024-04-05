@@ -1,21 +1,21 @@
-import Template from "../components/Template";
-import Stats from "@/components/Feed/Stats";
-import ReviewsFeed from "@/components/Feed/ReviewsFeed";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { getReviews } from "@/store/slices/reviews";
-import { useEffect } from "react";
+import Template from "../components/Template"
+import Stats from "@/components/Feed/Stats"
+import ReviewsFeed from "@/components/Feed/ReviewsFeed"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { getReviews } from "@/store/slices/reviews"
+import { useEffect } from "react"
 
 /**
  * Feed page
  */
 function Feed() {
-  const auth = useAppSelector((state) => state.auth);
-  const dispatch = useAppDispatch();
-  const reviews = useAppSelector((state) => state.reviews);
+  const auth = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
+  const reviews = useAppSelector((state) => state.reviews)
 
   useEffect(() => {
-    dispatch(getReviews());
-  }, []);
+    dispatch(getReviews())
+  }, [])
 
   return (
     <Template auth={auth}>
@@ -24,7 +24,7 @@ function Feed() {
             <ReviewsFeed user={auth.user} className="w-2/3" reviews={reviews.reviews}/>
         </div>
     </Template>
-  );
+  )
 }
 
-export default Feed;
+export default Feed

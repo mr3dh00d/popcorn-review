@@ -1,12 +1,12 @@
 interface params {
-    description: string;
-    score: number;
-    movie_id: number | null;
-    user_id: number | null;
+    description: string
+    score: number
+    movie_id: number | null
+    user_id: number | null
 }
 
 export async function createReviewAction(token: string, params: params) {
-    let good_response = true;
+    let good_response = true
     return fetch(`${import.meta.env.VITE_API_URL}/reviews/create`, {
         method: 'POST',
         headers: {
@@ -15,12 +15,12 @@ export async function createReviewAction(token: string, params: params) {
         },
         body: JSON.stringify(params),
     }).then((res) => {
-        good_response = res.ok;
-        return res.json();
+        good_response = res.ok
+        return res.json()
     }).then((res) => {
         if (good_response) {
-            return res;
+            return res
         }
-        throw new Error(res.message);
-    });
+        throw new Error(res.message)
+    })
 }

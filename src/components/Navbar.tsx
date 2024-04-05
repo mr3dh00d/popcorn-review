@@ -1,12 +1,12 @@
-// import '@styles/navbar.css';
-import { routes } from '@/routes/routes';
-import { AuthState, logout } from '@slices/auth';
-import logo from '@images/popcorn-logo.jpg';
-import { useState } from 'react';
-import { FaChevronDown, FaChevronUp } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
-import { useAppDispatch } from '@/store/hooks';
-// import { AiFillHome, AiFillFolderOpen } from "react-icons/ai";
+// import '@styles/navbar.css'
+import { routes } from '@/routes/routes'
+import { AuthState, logout } from '@slices/auth'
+import logo from '@images/popcorn-logo.jpg'
+import { useState } from 'react'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
+import { useAppDispatch } from '@/store/hooks'
+// import { AiFillHome, AiFillFolderOpen } from "react-icons/ai"
 
 interface NavbarProps {
   auth: AuthState
@@ -16,10 +16,10 @@ interface NavbarProps {
  */
 // @ts-ignore
 function Navbar(props: NavbarProps) {
-  const dispatch = useAppDispatch();
-  const [submenu, setSubmenu] = useState(false);
-  const { auth } = props;
-  const { user } = auth;
+  const dispatch = useAppDispatch()
+  const [submenu, setSubmenu] = useState(false)
+  const { auth } = props
+  const { user } = auth
 
   const renderUser = () => {
     return (
@@ -51,7 +51,7 @@ function Navbar(props: NavbarProps) {
           }
         </li>
       </ul>
-    );
+    )
   }
 
   const renderAuthentication = () => {
@@ -61,7 +61,7 @@ function Navbar(props: NavbarProps) {
           <Link to={routes.login} className="px-4 py-2 border-2 rounded-full border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white transition ease-out">Iniciar Sesión</Link>
         </li>
       </ul>
-    );
+    )
   }
 
   return (
@@ -71,7 +71,7 @@ function Navbar(props: NavbarProps) {
         { auth.isAuthenticated ? renderUser() : renderAuthentication()}
       </div>
     </nav>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

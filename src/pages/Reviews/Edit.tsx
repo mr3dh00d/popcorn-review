@@ -1,12 +1,12 @@
-import { FaRegTrashCan } from "react-icons/fa6";
+import { FaRegTrashCan } from "react-icons/fa6"
 import Template from "@/components/Template"
-import { useState } from "react";
-import { useAppSelector } from "@/store/hooks";
+import { useState } from "react"
+import { useAppSelector } from "@/store/hooks"
 
 function Edit() {
-    const auth = useAppSelector((state) => state.auth);
+    const auth = useAppSelector((state) => state.auth)
 
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState(0)
 
     return (
         <Template auth={auth}>
@@ -46,7 +46,7 @@ function Edit() {
                 </article>
             </section>
         </Template>
-    );
+    )
 }
 
-export default Edit;
+export default Edit

@@ -1,11 +1,11 @@
-import { login as loginAction } from "@/actions/auth/login";
-import Template from "@/components/Template";
-import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import logo from "@images/popcorn-logo.jpg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { login } from "@/store/slices/auth";
-import { User } from "@/types/users";
+import { login as loginAction } from "@/actions/auth/login"
+import Template from "@/components/Template"
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import logo from "@images/popcorn-logo.jpg"
+import { useState } from "react"
+import { Link } from "react-router-dom"
+import { login } from "@/store/slices/auth"
+import { User } from "@/types/users"
 
 interface LoginProps {}
 /**
@@ -13,23 +13,23 @@ interface LoginProps {}
  */
 // @ts-ignore
 function Login(props : LoginProps) {
-    const auth = useAppSelector((state) => state.auth);
-    const dispatch = useAppDispatch();
+    const auth = useAppSelector((state) => state.auth)
+    const dispatch = useAppDispatch()
 
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string>('');
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+    const [loading, setLoading] = useState<boolean>(false)
+    const [error, setError] = useState<string>('')
 
-    const errorStyle = error ? 'border-red-500' : '';
+    const errorStyle = error ? 'border-red-500' : ''
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) : void => {
-        e.preventDefault();
-        console.log('submit', {email, password});
-        setLoading(true);
+        e.preventDefault()
+        console.log('submit', {email, password})
+        setLoading(true)
         loginAction(email, password)
         .then((res) => {
-            const data = res.data;
+            const data = res.data
             const user : User = {
                 id: data.user.id,
                 name: data.user.name,
@@ -39,19 +39,19 @@ function Login(props : LoginProps) {
                 created_at: data.user.created_at,
                 updated_at: data.user.updated_at,
             }
-            const token = data.token;
+            const token = data.token
             dispatch(login({
                 user,
                 token,
-            }));
+            }))
         })
         .catch((err) => {
-            setError(err.message);
+            setError(err.message)
         })
         .finally(() => {
-            setLoading(false);
-        });
-    };
+            setLoading(false)
+        })
+    }
 
     return (
         <Template auth={auth}>
@@ -72,7 +72,7 @@ function Login(props : LoginProps) {
                 </article>
             </section>
         </Template>
-    );
+    )
 }
 
-export default Login;
+export default Login

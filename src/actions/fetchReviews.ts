@@ -1,20 +1,18 @@
-import { ReviewServerResponse } from "@/types/reviews";
+import { ReviewServerResponse } from "@/types/reviews"
 
 
-export function fetchReviews () : Promise<{
-    json: () => Array<ReviewServerResponse>;
-}>{
+export async function fetchReviews () : Promise<Array<ReviewServerResponse>>{
     return fetch(`${import.meta.env.VITE_API_URL}/reviews`, {
         headers: {
         }
     })
     .then((res) => {
-        return res.json();
+        return res.json()
     })
     .then((res) => {
         return res.data.reviews.map((review : ReviewServerResponse) => {
-            return review;
-        });
+            return review
+        })
 
     })
     // return new Promise((resolve) => {
@@ -38,7 +36,7 @@ export function fetchReviews () : Promise<{
     //         }))
     //         resolve({
     //             json: () => reviews,
-    //         });
-    //     }, 1500);
-    // });   
+    //         })
+    //     }, 1500)
+    // })   
 }

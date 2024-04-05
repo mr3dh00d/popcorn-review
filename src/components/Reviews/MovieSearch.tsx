@@ -1,53 +1,53 @@
-import { useEffect, useState } from "react";
-import MovieResult from "./MovieResult";
-import { fetchMovieSearch } from "@/actions/fetchMovieSearch";
-import { Movie } from "@/types/movies";
-import MovieResultLoading from "./MovieResultLoading";
+import { useEffect, useState } from "react"
+import MovieResult from "./MovieResult"
+import { fetchMovieSearch } from "@/actions/fetchMovieSearch"
+import { Movie } from "@/types/movies"
+import MovieResultLoading from "./MovieResultLoading"
 
 interface MovieSearchProps {
-    setMovie: (movie: Movie) => void;
-    loading: boolean;
+    setMovie: (movie: Movie) => void
+    loading: boolean
 }
 
 function MovieSearch(props : MovieSearchProps) {
-    const [open, setOpen] = useState(false);
-    const [query, setQuery] = useState('');
-    const [loading, setLoading] = useState(true);
-    const [results, setResults] = useState<Movie[] | []>([]);
-    const [shouldSearch, setShouldSearch] = useState(true);
+    const [open, setOpen] = useState(false)
+    const [query, setQuery] = useState('')
+    const [loading, setLoading] = useState(true)
+    const [results, setResults] = useState<Movie[] | []>([])
+    const [shouldSearch, setShouldSearch] = useState(true)
 
     useEffect(() => {
         if (shouldSearch && query.length > 3) {
-            setOpen(true);
-            setLoading(true);
+            setOpen(true)
+            setLoading(true)
             fetchMovieSearch(query)
             .then(results => setResults(results))
-            .finally(() => setLoading(false));
+            .finally(() => setLoading(false))
         }
-    }, [query, shouldSearch]);
+    }, [query, shouldSearch])
 
     const setMovie = (movie: Movie) => {
-        props.setMovie(movie);
-        setQuery(movie.title);
-        setOpen(false);
-        setShouldSearch(false);
+        props.setMovie(movie)
+        setQuery(movie.title)
+        setOpen(false)
+        setShouldSearch(false)
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value);
-        setShouldSearch(true);
+        setQuery(e.target.value)
+        setShouldSearch(true)
     }
 
     const renderResults = () => {
         if (results.length === 0) {
-            return <div className="py-2 px-4 text-gray-400">No hay resultados</div>;
+            return <div className="py-2 px-4 text-gray-400">No hay resultados</div>
         }
-        return results.map((movie, i) => <MovieResult key={i} movie={movie} setMovie={setMovie}/>);
+        return results.map((movie, i) => <MovieResult key={i} movie={movie} setMovie={setMovie}/>)
     }
 
     const renderLoading = () => (
         Array(5).fill(0).map((_, i) => <MovieResultLoading key={i} />)
-    );
+    )
 
     return (
         <section className="relative">
@@ -66,7 +66,7 @@ function MovieSearch(props : MovieSearchProps) {
                 </div>
             }
         </section>
-    );
+    )
 }
 
-export default MovieSearch;
+export default MovieSearch

@@ -1,9 +1,9 @@
-import Feed from "@/pages/Feed";
-import Login from "@/pages/Account/Login";
-import Register from "@/pages/Account/Register";
-import Reviews from "@/pages/Reviews/Reviews";
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import { routes } from "./routes";
+import Feed from "@/pages/Feed"
+import Login from "@/pages/Account/Login"
+import Register from "@/pages/Account/Register"
+import Reviews from "@/pages/Reviews/Reviews"
+import { Navigate, createBrowserRouter } from "react-router-dom"
+import { routes } from "./routes"
 
 const router = (isAuthenticated : boolean) => {
     return createBrowserRouter([
@@ -45,7 +45,7 @@ const router = (isAuthenticated : boolean) => {
                 },
             ]
         },
-    ]);
-};
+    ])
+}
 
-export default router;
+export default router

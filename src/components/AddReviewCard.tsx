@@ -1,6 +1,6 @@
-import { routes } from "@/routes/routes";
-import { User } from "@/types/users";
-import { Link } from "react-router-dom";
+import { routes } from "@/routes/routes"
+import { User } from "@/types/users"
+import { Link } from "react-router-dom"
 
 interface AddReviewCardProps {
     user: User | null
@@ -11,7 +11,7 @@ interface AddReviewCardProps {
  */
 // @ts-ignore
 function AddReviewCard(props : AddReviewCardProps) {
-    const { user } = props;
+    const { user } = props
     return (
         <article className="flex gap-4 items-center w-full bg-white rounded-md px-8 py-4">
             <img width={60} height={60} src={`/avatars/${user?.avatar}.png`} alt="avatar_usuario" />
@@ -22,4 +22,4 @@ function AddReviewCard(props : AddReviewCardProps) {
     )  
 }
 
-export default AddReviewCard;
+export default AddReviewCard

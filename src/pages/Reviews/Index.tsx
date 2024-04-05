@@ -1,12 +1,12 @@
-import ReviewsFeed from "@/components/Feed/ReviewsFeed";
-import Template from "@/components/Template";
-import { useAppSelector } from "@/store/hooks";
+import ReviewsFeed from "@/components/Feed/ReviewsFeed"
+import Template from "@/components/Template"
+import { useAppSelector } from "@/store/hooks"
 
 interface IndexProps {}
 
 // @ts-ignore
 function Index(props : IndexProps) {
-    const auth = useAppSelector((state) => state.auth);
+    const auth = useAppSelector((state) => state.auth)
 
     return (
         <Template auth={auth}>
@@ -14,7 +14,7 @@ function Index(props : IndexProps) {
                 <ReviewsFeed reviews={null} user={auth.user} className="w-2/3" canEdit/>
             </div>
         </Template>
-    );
+    )
 }
 
-export default Index;
+export default Index

@@ -1,4 +1,4 @@
-import { FaHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa6"
 
 /**
  * Review component
@@ -41,7 +41,7 @@ function ReviewLoadingCard () {
             </div>
         </article>
 
-    );
+    )
 }
 
-export default ReviewLoadingCard;
+export default ReviewLoadingCard

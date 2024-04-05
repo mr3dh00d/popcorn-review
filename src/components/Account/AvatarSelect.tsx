@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { useState } from "react"
+import { FaChevronDown, FaChevronUp } from "react-icons/fa6"
 
 interface AvatarSelectProps {
     avatar: number,
@@ -12,14 +12,14 @@ interface AvatarSelectProps {
  */
 // @ts-ignore
 function AvatarSelect(props: AvatarSelectProps) {
-    const { avatar, setAvatar, loading } = props;
-    const [open, setOpen] = useState(false);
+    const { avatar, setAvatar, loading } = props
+    const [open, setOpen] = useState(false)
 
     // const openAvatarSelect = () => {
 
     // }
 
-    const selectedAvatarStyle = (i: number) => i+1 === avatar ? 'border bg-gray-700' : null;
+    const selectedAvatarStyle = (i: number) => i+1 === avatar ? 'border bg-gray-700' : null
 
     return (
         <div className="">
@@ -37,7 +37,7 @@ function AvatarSelect(props: AvatarSelectProps) {
                 </div>
             }
         </div>
-    );
+    )
 }
 
-export default AvatarSelect;
+export default AvatarSelect

@@ -1,16 +1,16 @@
-import { AuthState } from "@slices/auth";
-import Navbar from "./Navbar";
+import { AuthState } from "@slices/auth"
+import Navbar from "./Navbar"
 
 interface TemplateProps {
-    auth: AuthState;
-    children: React.ReactNode;
+    auth: AuthState
+    children: React.ReactNode
 }
 
 /**
  * Template component
  */
 function Template(props : TemplateProps) {
-  const { auth } = props;
+  const { auth } = props
   return (
     <div className="flex flex-col w-full items-center">
         <Navbar auth={auth}/>
@@ -18,7 +18,7 @@ function Template(props : TemplateProps) {
             { props.children }
         </div>
     </div>
-  );
+  )
 }
 
-export default Template;
+export default Template

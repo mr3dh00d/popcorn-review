@@ -1,4 +1,4 @@
-import { Movie } from "@/types/movies";
+import { Movie } from "@/types/movies"
 
 export async function fetchMovieData(movieId: number) {
     const options = {
@@ -7,7 +7,7 @@ export async function fetchMovieData(movieId: number) {
           accept: 'application/json',
           Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`
         }
-      };
+      }
       
     const movie = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=es-CL`, options)
     .then(response => response.json())
@@ -20,9 +20,9 @@ export async function fetchMovieData(movieId: number) {
             poster_path: data.poster_path,
             release_date: data.release_date
         }
-        return movie;
-    });
+        return movie
+    })
 
-    return movie;
+    return movie
 
 }
